@@ -27,13 +27,66 @@
     <main>
 
         <section>
-            <h2>Seu perfil</h2>
+    <h2>Seu perfil</h2>
 
-            <p>
-                Preencha seus dados para analisar sua compatibilidade
-                com as vagas disponíveis.
-            </p>
-        </section>
+    <form id="formulario-perfil">
+
+        <div>
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+        </div>
+
+        <div>
+            <label for="area">Área de interesse:</label>
+            <input type="text" id="area" name="area" required>
+        </div>
+
+        <div>
+            <label for="experiencia">Tempo de experiência:</label>
+            <input
+                type="number"
+                id="experiencia"
+                name="experiencia"
+                min="0"
+                required
+            >
+        </div>
+
+        <fieldset>
+            <legend>Habilidades</legend>
+
+            <label>
+                <input type="checkbox" name="habilidades" value="HTML">
+                HTML
+            </label>
+
+            <label>
+                <input type="checkbox" name="habilidades" value="CSS">
+                CSS
+            </label>
+
+            <label>
+                <input type="checkbox" name="habilidades" value="JavaScript">
+                JavaScript
+            </label>
+
+            <label>
+                <input type="checkbox" name="habilidades" value="Git">
+                Git
+            </label>
+
+            <label>
+                <input type="checkbox" name="habilidades" value="React">
+                React
+            </label>
+        </fieldset>
+
+        <button type="submit">Analisar vagas</button>
+
+        <p id="mensagem-erro"></p>
+
+    </form>
+</section>
 
         <section>
             <h2>Vagas disponíveis</h2>
