@@ -1,0 +1,55 @@
+[
+    {
+        "id": 1,
+        "empresa": "Tech Solutions",
+        "cargo": "Desenvolvedor Front-end Júnior",
+        "requisitos": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "Git",
+            "React"
+        ],
+        "salario": "R$ 3.000 - R$ 4.000",
+        "modalidade": "Híbrido"
+    },
+    {
+        "id": 2,
+        "empresa": "WebMais",
+        "cargo": "Desenvolvedor Web Júnior",
+        "requisitos": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "Git"
+        ],
+        "salario": "R$ 2.800 - R$ 3.500",
+        "modalidade": "Remoto"
+    },
+    {
+        "id": 3,
+        "empresa": "Digital Code",
+        "cargo": "Front-end Developer",
+        "requisitos": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "React",
+            "Git"
+        ],
+        "salario": "R$ 3.500 - R$ 4.500",
+        "modalidade": "Presencial"
+    },
+    {
+        "id": 4,
+        "empresa": "StartTech",
+        "cargo": "Desenvolvedor de Interfaces",
+        "requisitos": [
+            "HTML",
+            "CSS",
+            "JavaScript"
+        ],
+        "salario": "R$ 2.500 - R$ 3.200",
+        "modalidade": "Híbrido"
+    }
+]
