@@ -1,3 +1,6 @@
+import { carregarVagas } from "./dados.js";
+
+
 const formulario = document.querySelector("#formulario-perfil");
 const mensagemErro = document.querySelector("#mensagem-erro");
 
@@ -35,3 +38,16 @@ formulario.addEventListener("submit", function (event) {
     console.log("Experiência:", experiencia);
     console.log("Habilidades:", habilidades);
 });
+
+async function testarVagas() {
+    try {
+        const vagas = await carregarVagas();
+
+        console.log("Vagas carregadas:", vagas);
+
+    } catch (erro) {
+        console.error("Erro ao carregar vagas:", erro);
+    }
+}
+
+testarVagas();
