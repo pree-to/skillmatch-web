@@ -53,6 +53,8 @@ formulario.addEventListener("submit", function (event) {
         habilidades: habilidades
     };
 
+    localStorage.setItem("perfil", JSON.stringify(candidato));
+
     console.log("Candidato:", candidato);
 
     analisarVagas(candidato);
@@ -106,3 +108,27 @@ mostrarMelhorVaga(melhorVaga);
 }
 
 carregarCatalogo();
+
+function carregarPerfil() {
+    const perfilSalvo = localStorage.getItem("perfil");
+
+    if (perfilSalvo) {
+        const candidato = JSON.parse(perfilSalvo);
+
+        document.querySelector("#nome").value = candidato.nome;
+        document.querySelector("#area").value = candidato.area;
+        document.querySelector("#experiencia").value = candidato.experiencia;
+
+        candidato.habilidades.forEach(function (habilidade) {
+            const caixa = document.querySelector(
+                `input[name="habilidades"][value="${habilidade}"]`
+            );
+
+            if (caixa) {
+                caixa.checked = true;
+            }
+        });
+    }
+}
+
+carregarPerfil();
