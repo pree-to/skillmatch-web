@@ -45,11 +45,9 @@ export function mostrarVagas(vagas) {
 export function mostrarMelhorVaga(vaga) {
     const melhorVaga = document.querySelector("#melhor-vaga");
 
-    let recomendacao = "Você já possui as principais habilidades para esta vaga.";
+    const gerarRecomendacao = criarRecomendacao(vaga.faltantes);
 
-    if (vaga.faltantes.length > 0) {
-        recomendacao = `Para melhorar sua compatibilidade, estude: ${vaga.faltantes.join(", ")}.`;
-    }
+    const recomendacao = gerarRecomendacao();
 
     melhorVaga.innerHTML = `
         <div class="melhor-vaga">
@@ -62,7 +60,6 @@ export function mostrarMelhorVaga(vaga) {
             <p>
                 Empresa: ${vaga.empresa}
             </p>
-            
 
             <p>
                 Compatibilidade: ${vaga.percentual}%
@@ -78,4 +75,14 @@ export function mostrarMelhorVaga(vaga) {
             </p>
         </div>
     `;
+}
+
+export function criarRecomendacao(habilidadesFaltantes) {
+    return function () {
+        if (habilidadesFaltantes.length === 0) {
+            return "Você já possui as principais habilidades para esta vaga.";
+        }
+
+        return `Para melhorar sua compatibilidade, estude: ${habilidadesFaltantes.join(", ")}.`;
+    };
 }
