@@ -8,11 +8,23 @@ const mensagemErro = document.querySelector("#mensagem-erro");
 let vagas = [];
 
 async function carregarCatalogo() {
+    const statusVagas = document.querySelector("#status-vagas");
+
+    statusVagas.textContent = "Carregando vagas...";
+
     try {
         vagas = await carregarVagas();
 
+        if (vagas.length === 0) {
+            statusVagas.textContent = "Nenhuma vaga encontrada.";
+            return;
+        }
+
+        statusVagas.textContent = "";
+
         console.log("Vagas carregadas:", vagas);
     } catch (erro) {
+        statusVagas.textContent = "Não foi possível carregar as vagas.";
         console.error("Erro ao carregar vagas:", erro);
     }
 }

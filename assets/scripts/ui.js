@@ -62,6 +62,7 @@ export function mostrarMelhorVaga(vaga) {
             <p>
                 Empresa: ${vaga.empresa}
             </p>
+            
 
             <p>
                 Compatibilidade: ${vaga.percentual}%
