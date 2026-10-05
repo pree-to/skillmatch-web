@@ -1,44 +1,53 @@
 # SkillMatch
 
-Sistema web acadêmico para comparar as habilidades de um candidato com requisitos de vagas de emprego.
+Sistema web acadêmico desenvolvido para comparar as habilidades de um candidato com os requisitos de vagas de emprego.
 
-## Sobre o projeto
+## 🎯 Objetivo
 
-O SkillMatch permite que o usuário informe seus dados, área de interesse, tempo de experiência e habilidades.
+O SkillMatch ajuda o usuário a identificar quais vagas de Front-end combinam melhor com seu perfil.
 
-O sistema analisa as vagas disponíveis e apresenta:
+O usuário informa:
 
-- percentual de compatibilidade;
-- classificação da vaga;
-- habilidades encontradas;
-- habilidades que faltam;
-- salário;
-- modalidade de trabalho;
-- melhor vaga para o candidato;
-- recomendação de estudo.
+- Nome
+- Área de interesse
+- Tempo de experiência
+- Habilidades
 
-## Tecnologias utilizadas
+Depois da análise, o sistema apresenta o percentual de compatibilidade com cada vaga, a classificação, as habilidades encontradas e as habilidades que ainda faltam.
+
+Também é apresentada a vaga com maior compatibilidade e uma recomendação de estudo.
+
+## 🌐 Projeto online
+
+A aplicação está disponível em:
+
+https://pree-to.github.io/skillmatch-web/
+
+## 🛠️ Tecnologias utilizadas
 
 - HTML5
 - CSS3
 - JavaScript
 - JSON
-- Git e GitHub
+- Git
+- GitHub
 
-## Funcionalidades
+## ⚙️ Principais funcionalidades
 
-- Cadastro do perfil do candidato;
-- Validação do formulário;
-- Carregamento das vagas utilizando `fetch`;
-- Cálculo de compatibilidade;
-- Classificação das vagas;
-- Identificação da melhor vaga;
-- Recomendação de estudo;
-- Persistência do perfil utilizando `localStorage`;
-- Interface responsiva;
-- Organização do código em módulos JavaScript.
+- Cadastro do perfil do candidato
+- Validação do formulário
+- Carregamento das vagas através de `fetch`
+- Cálculo de compatibilidade
+- Classificação das vagas em Alta, Média e Baixa
+- Identificação da melhor vaga
+- Recomendação de estudo
+- Identificação de habilidades encontradas e faltantes
+- Persistência do perfil com `localStorage`
+- Interface responsiva
+- Manipulação do DOM com JavaScript
+- Organização do JavaScript em módulos ES
 
-## Estrutura do projeto
+## 📁 Estrutura do projeto
 
 ```text
 skillmatch-web/
