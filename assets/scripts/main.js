@@ -1,8 +1,21 @@
 import { carregarVagas } from "./dados.js";
-
+import { VagaFrontEnd } from "./motor.js";
+import { mostrarVagas, mostrarMelhorVaga } from "./ui.js";
 
 const formulario = document.querySelector("#formulario-perfil");
 const mensagemErro = document.querySelector("#mensagem-erro");
+
+let vagas = [];
+
+async function carregarCatalogo() {
+    try {
+        vagas = await carregarVagas();
+
+        console.log("Vagas carregadas:", vagas);
+    } catch (erro) {
+        console.error("Erro ao carregar vagas:", erro);
+    }
+}
 
 formulario.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -33,21 +46,63 @@ formulario.addEventListener("submit", function (event) {
 
     mensagemErro.textContent = "";
 
-    console.log("Nome:", nome);
-    console.log("Área:", area);
-    console.log("Experiência:", experiencia);
-    console.log("Habilidades:", habilidades);
+    const candidato = {
+        nome: nome,
+        area: area,
+        experiencia: Number(experiencia),
+        habilidades: habilidades
+    };
+
+    console.log("Candidato:", candidato);
+
+    analisarVagas(candidato);
 });
 
-async function testarVagas() {
-    try {
-        const vagas = await carregarVagas();
+function analisarVagas(candidato) {
+    const vagasDoMotor = vagas.map(function (vaga) {
+        return new VagaFrontEnd(
+            vaga.id,
+            vaga.empresa,
+            vaga.cargo,
+            vaga.requisitos,
+            vaga.salario,
+            vaga.modalidade,
+            "Júnior"
+        );
+    });
 
-        console.log("Vagas carregadas:", vagas);
+    const resultados = vagasDoMotor.map(function (vaga) {
+        const resultado = vaga.calcularCompatibilidade(
+            candidato.habilidades
+        );
 
-    } catch (erro) {
-        console.error("Erro ao carregar vagas:", erro);
-    }
+        const classificacao = vaga.classificar(resultado.percentual);
+
+        return {
+            cargo: vaga.obterTitulo(),
+            empresa: vaga.empresa,
+            percentual: resultado.percentual,
+            classificacao: classificacao,
+            encontradas: resultado.encontradas,
+            faltantes: resultado.faltantes,
+            salario: vaga.salario,
+            modalidade: vaga.modalidade
+        };
+    });
+
+    const melhorVaga = resultados.reduce(function (melhor, vaga) {
+        if (vaga.percentual > melhor.percentual) {
+            return vaga;
+        }
+
+        return melhor;
+    });
+
+    console.log("Resultados:", resultados);
+console.log("Melhor vaga:", melhorVaga);
+
+mostrarVagas(resultados);
+mostrarMelhorVaga(melhorVaga);
 }
 
-testarVagas();
+carregarCatalogo();

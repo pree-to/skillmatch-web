@@ -28,14 +28,12 @@ export class Vaga {
         };
     }
 
-    classificar() {
-        const resultado = this.calcularCompatibilidade(this.habilidades);
-
-        if (resultado.percentual >= 80) {
+    classificar(percentual) {
+        if (percentual >= 80) {
             return "Alta";
         }
 
-        if (resultado.percentual >= 50) {
+        if (percentual >= 50) {
             return "Média";
         }
 
@@ -44,7 +42,15 @@ export class Vaga {
 }
 
 export class VagaFrontEnd extends Vaga {
-    constructor(id, empresa, cargo, requisitos, salario, modalidade, senioridade) {
+    constructor(
+        id,
+        empresa,
+        cargo,
+        requisitos,
+        salario,
+        modalidade,
+        senioridade
+    ) {
         super(id, empresa, cargo, requisitos, salario, modalidade);
 
         this.senioridade = senioridade;
